@@ -15,3 +15,26 @@
         }
        
         return max;
+
+
+
+// 2nd way
+
+
+
+// int sum=0,max=nums[0];
+        int sum=0,max=nums[0];
+        for(int i=0;i<nums.size();i++)
+        {
+            sum=0;
+           
+            for(int j=i;j<nums.size();j++)
+            {
+                sum=sum+nums[j];
+                if(max<sum)
+                {
+                    max=sum;
+                }
+            }
+        }
+        return max;
