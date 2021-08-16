@@ -1,0 +1,26 @@
+double w=(double)(1.0);
+        long nn=n;
+        if(n<0)
+        {
+            nn=-1*nn;
+        }
+        while(nn>0)
+        {
+            if(nn%2!=0)
+            {
+                w=x*w;
+                nn--;
+            }
+            else
+            {
+                x=x*x;
+                nn=nn/2;
+            }
+        }
+        
+        
+        if(n<0)
+        {
+            w=((double)(1.0)/(double)(w));
+        }
+            return w;
