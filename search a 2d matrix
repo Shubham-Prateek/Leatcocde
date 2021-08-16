@@ -1,0 +1,50 @@
+int i=0,j=0;
+        int x=0;
+        cout<<matrix.size()<<" ";
+        cout<<matrix[0].size();
+        while((i!=matrix.size())&&(j!=matrix[0].size()))
+        {
+            if(matrix[i][j]<target)
+            {
+               j++;
+                if(j==matrix[0].size())
+                {
+                    i++;
+                    j=0;
+                    if(i==matrix.size())
+                    {
+                        j=matrix[0].size();
+                        x=0;
+                        break;
+                    }
+                }
+               
+               
+            }
+            else if(matrix[i][j]==target)
+            {
+                x=1;
+                break;
+                
+            }
+            else
+            {
+                i++;
+                j=0;
+                if(i==matrix.size())
+                {
+                    j==matrix[0].size();
+                    x=0;
+                    break;
+                }
+            }
+        }
+        
+        if(x==1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
