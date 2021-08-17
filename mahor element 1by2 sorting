@@ -1,0 +1,46 @@
+vector<int> a;
+        vector<int> b;
+        vector<int> c;
+        sort(nums.begin(),nums.end());
+        int count=0;
+        int ele=nums[0];
+        
+        
+        if(nums.size()==1)
+        {
+            b.push_back(nums[0]);
+        }
+        else if(nums.size()==2)
+        {
+            b.push_back(nums[0]);
+            if(nums[1]!=nums[0])
+                b.push_back(nums[1]);
+        }
+        else
+        {
+            for(int i=0;i<nums.size();i++)
+            {
+                if(nums[i]==ele)
+                {
+                    count++;
+                    if(count>nums.size()/3)
+                    {
+                        if(b.size()==0)
+                        {
+                            b.push_back(nums[i]);
+
+                        }
+                        else if(b[b.size()-1]!=nums[i])
+                        {
+                            b.push_back(nums[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    count=1;
+                    ele=nums[i];
+                }
+            }
+        }
+        return b;
