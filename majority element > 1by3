@@ -1,0 +1,40 @@
+vector<int> a;
+        vector<int> b;
+        vector<int> c;
+        int x=1;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(i==0)
+            {
+                a.push_back(nums[i]);
+                b.push_back(1);
+                
+            }
+            else
+            {
+                int j;
+                for(j=0;j<a.size();j++)
+                {
+                    if(nums[i]==a[j])
+                    {
+                        b[j]++;
+                        break;
+                    }
+                    
+                }
+                if(j==a.size())
+                {
+                    a.push_back(nums[i]);
+                    b.push_back(1);
+                }
+            }
+        }
+        int s=nums.size()/3;
+        for(int i=0;i<a.size();i++)
+        {
+            if(b[i]>s)
+            {
+                c.push_back(a[i]);
+            }
+        }
+        return c;
