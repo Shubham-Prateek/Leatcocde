@@ -1,2 +1,2 @@
-# Leatcocde
+# Leetcode
 Leatcode problems
