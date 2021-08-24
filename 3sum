@@ -1,0 +1,150 @@
+ vector<vector<int>> a;
+        int j=1;
+        sort(nums.begin(),nums.end());
+       
+        if(nums.size()<3)
+        {
+           cout<<"dd";
+            return a;
+            
+        }
+        else
+        {
+            
+            int l=0;
+            int h=0;
+            int sum;
+             
+            for(int i=0;i<nums.size()-2;i++)
+            {
+                 //cout<<l<<" "<<h;
+                if(i>0)
+                {
+                   
+                    if(nums[i]==nums[i-1])
+                    {
+
+                            continue;
+                    }
+                    else
+                    {
+                        l=i+1;
+                        h=nums.size()-1;
+                        sum=-1*nums[i];
+                        while(l<h)
+                        {
+                            if(nums[l]+nums[h]<sum)
+                            {
+
+                                l++;
+                                 while(nums[l]==nums[l-1])
+                                {
+                                    l++;
+                                    if(l>=h)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                            else if(nums[l]+nums[h]>sum)
+                            {
+
+                                h--;
+                                 while(nums[h]==nums[h+1])
+                                {
+                                    h--;
+                                    if(l>=h)
+                                        break;
+                                } 
+                            }
+                            else
+                            {
+                                a.push_back({nums[i],nums[l],nums[h]});
+                                l++;
+                                while(nums[l]==nums[l-1])
+                                {
+                                    l++;
+                                    if(l>=h)
+                                    {
+                                        break;
+                                    }
+                                }
+                                h--;
+                                 while(nums[h]==nums[h+1])
+                                {
+                                    h--;
+                                    if(l>=h)
+                                        break;
+                                } 
+
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                        l=i+1;
+                    j=0;
+                        h=nums.size()-1;
+                    
+                        sum=-1*nums[i];
+                        //cout<<i<<" "<<l<<" "<<h;
+                        while(l<h)
+                        {
+                            
+                            cout<<j;
+                            j++;
+                            if(nums[l]+nums[h]<sum)
+                            {
+
+                                l++;
+                                while(nums[l]==nums[l-1])
+                                {
+                                    l++;
+                                    if(l>=h)
+                                        break;
+                                    
+                                }
+                            }
+                            else if(nums[l]+nums[h]>sum)
+                            {
+
+                                h--;
+                                while(nums[h]==nums[h+1])
+                                {
+                                    h--;
+                                    if(l>=h)
+                                        break;
+                                } 
+                            }
+                            else
+                            {
+                                a.push_back({nums[i],nums[l],nums[h]});
+                                l++;
+                                while(nums[l]==nums[l-1])
+                                {
+                                    l++;
+                                    if(l>=h)
+                                        break;
+                                    
+                                }
+                                
+                                h--;
+                                while(nums[h]==nums[h+1])
+                                {
+                                    h--;
+                                    if(l>=h)
+                                        break;
+                                } 
+                                
+                                if(l>=h)
+                                {
+                                    break;
+                                }
+
+                            }
+                        }
+                }
+            }
+        }
+        return a;
