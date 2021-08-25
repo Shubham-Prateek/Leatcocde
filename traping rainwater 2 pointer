@@ -1,0 +1,31 @@
+        int sum=0;
+        int l=0,r=height.size()-1;
+        int lmax=height[0],rmax=height[height.size()-1];
+        while(l<r)
+        {
+            if(height[l]<=height[r])
+            {
+                l++;
+                if(height[l]<lmax)
+                {
+                    sum=sum+lmax-height[l];
+                }
+                else
+                {
+                    lmax=height[l];
+                }
+            }
+            else if(height[l]>height[r])
+            {
+                r--;
+                if(height[r]>rmax)
+                {
+                    rmax=height[r];
+                }
+                else
+                {
+                    sum=sum+rmax-height[r];
+                }
+            }
+        }
+        return sum;
