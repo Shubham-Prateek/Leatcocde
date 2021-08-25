@@ -1,0 +1,79 @@
+ int trap(vector<int>& height) 
+    {
+        int sum=0;
+        int prefix[height.size()];
+        int postfix[height.size()];
+        int l=height.size()-1;
+        for(int i=0;i<height.size();i++)
+        {
+            int max;
+            if(i==0)
+            {
+                max=height[i];
+                prefix[i]=max;;
+            }
+            else
+            {
+                if(height[i]>max)
+                {
+                    max=height[i];
+                    prefix[i]=max;
+                }
+                else
+                {
+                    prefix[i]=max;
+                }
+            }
+            cout<<prefix[i]<<" ";
+            
+        }
+        cout<<"\n";
+        for(int i=height.size()-1;i>=0;i--)
+        {
+            int max;
+            if(i==height.size()-1)
+            {
+                max=height[i];
+                postfix[i]=max;
+            }
+            else
+            {
+                if(height[i]>max)
+                {
+                    max=height[i];
+                    postfix[i]=max;
+                }
+                else
+                {
+                    postfix[i]=max;
+                }
+            }
+            cout<<postfix[i]<<" ";
+        }
+        
+        cout<<"\n";
+        
+        
+        
+        int i=0;
+        int y=height.size()-1;
+        cout<<"\n";
+        while(i<height.size())
+        {
+            
+            cout<<postfix[i]<<" ";
+            i++;
+        }
+        cout<<"\n";
+        for(int i=0;i<height.size();i++)
+        {
+            sum=sum-height[i]+min(prefix[i],postfix[i]);
+            cout<<sum<<" ";
+        }
+        
+        
+        
+        
+        
+        return sum;
+    }
