@@ -1,0 +1,38 @@
+
+        int count=0;
+        int l=0,t=0;
+        int r=1;
+        if(nums.size()<2)
+        {
+            return nums.size();
+        }
+        else
+        {
+            while(r<nums.size())
+            {
+                if(nums[l]!=nums[r])
+                {
+                    l++;
+                    r++;
+                }
+                else
+                {
+                    while(nums[l]==nums[r])
+                    {
+                        r++;
+                        if(r==nums.size())
+                        {
+                            t=1;
+                            break;
+                        }
+                     
+                    }
+                    if(t==0)
+                    {nums[l+1]=nums[r];
+                    l++;}
+                }
+                
+            }
+        }
+      cout<<l<<r;
+        return nums.size()-(r-l-1);
